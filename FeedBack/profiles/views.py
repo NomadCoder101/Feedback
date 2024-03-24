@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from django.http import HttpResponseRedirect
 
@@ -16,6 +16,14 @@ from .models import User_Profile
 #     with open("temp/image.jpg", 'wb+') as dest:
 #         for chunck in file.chunks():
 #             file.write(chunck)
+
+
+class ProfileListView(ListView):
+    
+    template_name="profiles/user_profile_list.html"
+    model= User_Profile
+    context_object_name= "profiles"
+    
             
  
 class CreateProfileView(CreateView):   
